@@ -37,3 +37,6 @@ tests
 
         npm test
 
+
+
+git checkout

@@ -1,0 +1,19 @@
+{
+  "name": "distributedNgram",
+  "version": "1.0.0",
+  "description": "npm i --save js-spark",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "author": "syzer <syzer@users.noreply.github.com> (https://github.com/syzer/JS-Spark)",
+  "license": "ISC",
+  "dependencies": {
+    "js-spark": "latest",
+    "lodash": "^3.6.0"
+  },
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "mocha": "^2.2.3"
+  }
+}
