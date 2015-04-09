@@ -8,6 +8,13 @@ installation
         npm i --save js-spark bluebird
         npm i --save-dev mocha chai
 
+
+The file nGram.js offers more compact version of code:
+
+        node nGram
+
+
+
 testing basic distributed task
 ------------------------------
 
