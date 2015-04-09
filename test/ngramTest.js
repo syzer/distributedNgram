@@ -13,12 +13,16 @@ function delNumbers(str) {
 
 describe('ngramText', function () {
     it('run on chapter 01', function (done) {
-        expect(bigramText(ch01).pretty).to.deep.equal({good: 1});
+        expect(bigramText(ch01).pretty).to.deep.equal(
+            {good: 1}
+        );
         done();
     });
 
     it('should produces same results', function (done) {
-        expect(bigramText(ch1).road).to.deep.equal({there: 1, losing: 1, was: 1, is: 1});
+        expect(bigramText(ch1).road).to.deep.equal(
+            {there: 1, losing: 1, was: 1, is: 1}
+        );
         done();
     });
 

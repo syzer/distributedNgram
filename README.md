@@ -12,7 +12,7 @@ testing basic distributed task
 ------------------------------
 
 ```js
-var jsSpark = require('js-spark')({workers: 4});
+var jsSpark = require('js-spark')({workers: 16});
 var task = jsSpark.jsSpark;
 var q = jsSpark.q;
 
@@ -27,7 +27,7 @@ task([20, 30, 40, 50])
     .run()
     .then(function(data) {
         // this is executed on back on server
-        console.log(data);
+        console.log('i finished calculating', data);
     })
 ```
 
@@ -57,6 +57,7 @@ load:
 (gist)
 
 
+// helpers
 ./lib/index.js
 --------------
 make function **prepare()**
