@@ -1,6 +1,6 @@
 {
   "name": "distributedNgram",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "npm i --save js-spark",
   "main": "index.js",
   "scripts": {

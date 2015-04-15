@@ -1,3 +1,8 @@
+WAT
+===
+
+Simply put predict next word user will write.
+
 HOWTO
 =====
 
