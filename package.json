@@ -15,5 +15,14 @@
   "devDependencies": {
     "chai": "^2.2.0",
     "mocha": "^2.2.3"
-  }
+  },
+  "keywords": [
+    "Machine learning",
+    "ML",
+    "ngram",
+    "NLP",
+    "Natual Language Processing",
+    "distributed",
+    "js-spark"
+  ]
 }
