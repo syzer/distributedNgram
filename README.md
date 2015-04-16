@@ -9,9 +9,9 @@ HOWTO
 installation
 ------------
 
-        npm init
-        npm i --save js-spark bluebird
-        npm i --save-dev mocha chai
+        git clone git@github.com:syzer/distributedNgram.git && cd $_
+        npm install
+        npm install --save-dev
 
 
 The file nGram.js offers more compact version of code:
