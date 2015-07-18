@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "js-spark": "latest",
-    "lodash": "^3.6.0"
+    "lodash": "^3.6.0",
+    "prompt": "^0.2.14"
   },
   "devDependencies": {
     "chai": "^2.2.0",

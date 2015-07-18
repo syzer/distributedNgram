@@ -1,7 +1,7 @@
 /**
  * Created by syzer on 4/7/2015.
  */
-var jsSpark = require('js-spark')({workers: 1});
+var jsSpark = require('js-spark')({workers: 2});
 var task = jsSpark.jsSpark;
 var q = jsSpark.q;
 var _ = require('lodash');
@@ -9,7 +9,6 @@ var lib = require('./lib')(_);
 _.mixin(lib);
 var fs = require('fs');
 var DRACULA = './data/text/dracula/';
-
 
 // cache
 var dataBase;
@@ -52,10 +51,10 @@ function mergeBig(texts) {
             .thru(bigramText)
             .run()
     })).then(function reducer(data) {
-        //return _.mergeObjectsInArr(data);     // uncomment if u want to reduce on this worker
-        return task(data)
-            .thru(merger)
-            .run();
+        return _.mergeObjectsInArr(data);     // uncomment if u want to reduce on this worker
+        //return task(data)
+        //    .thru(merger)
+        //    .run();
     }).then(function cacheInDb(data) {
         dataBase = data;
         return data;
@@ -104,6 +103,10 @@ function bigramText(str) {
     return out;
 }
 
+function displayPrediction(result, i, word) {
+    console.log('\n\nPredictions for word: ' + (words[i] || word));
+    console.log(result);
+}
 
 module.exports = function () {
 
@@ -114,17 +117,34 @@ module.exports = function () {
     }
 };
 
-console.time('train+predict');
+function promptUserPredicitons(predictions) {
+    var prompt = require('prompt');
+    prompt.start();
+    prompt.get(['word'], function (err, res) {
+        displayPrediction(predict(res.word).slice(0, 10), null, res.word);
+        return predictions;
+    });
+}
+
+// van is the word
+var words = ['i', 'van', 'helsing'];
+
+console.time('train');
 
 module
     .exports()
     .train(DRACULA + 'full.txt', '\r\n\r\n\r\nCHAPTER')
     .then(function () {
-        var result = predict('i').slice(0, 10);
-        console.log('predictions for word `i`:\n', result);
-
-        console.timeEnd('train+predict');
-    });
+        console.timeEnd('train');
+        return words.map(function (word) {
+            return predict(word).slice(0, 10);
+        });
+    })
+    .then(function displayPredictions(predictions) {
+        predictions.map(displayPrediction);
+        return predictions;
+    })
+    .then(promptUserPredicitons);
 
 
 
