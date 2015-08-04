@@ -16,8 +16,7 @@ installation
 
 The file nGram.js offers more compact version of code:
 
-        node nGram
-
+        npm start
 
 
 testing basic distributed task

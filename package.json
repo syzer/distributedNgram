@@ -1,9 +1,10 @@
 {
   "name": "distributed-ngram",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "npm i --save js-spark",
   "main": "index.js",
   "scripts": {
+    "start": "node nGram.js",
     "test": "mocha --recursive"
   },
   "author": "syzer <syzer@users.noreply.github.com> (https://github.com/syzer/JS-Spark)",

@@ -1,6 +1,7 @@
 /**
  * Created by syzer on 4/7/2015.
  */
+// run on two threads
 var jsSpark = require('js-spark')({workers: 2});
 var task = jsSpark.jsSpark;
 var q = jsSpark.q;
@@ -117,8 +118,9 @@ module.exports = function () {
     }
 };
 
-function promptUserPredicitons(predictions) {
+function promptUserPredictions(predictions) {
     var prompt = require('prompt');
+    prompt.message = 'Guess what user typed after that';
     prompt.start();
     prompt.get(['word'], function (err, res) {
         displayPrediction(predict(res.word).slice(0, 10), null, res.word);
@@ -126,7 +128,6 @@ function promptUserPredicitons(predictions) {
     });
 }
 
-// van is the word
 var words = ['i', 'van', 'helsing'];
 
 console.time('train');
@@ -134,7 +135,7 @@ console.time('train');
 module
     .exports()
     .train(DRACULA + 'full.txt', '\r\n\r\n\r\nCHAPTER')
-    .then(function () {
+    .then(function checkPredictionsForHardcodedWords() {
         console.timeEnd('train');
         return words.map(function (word) {
             return predict(word).slice(0, 10);
@@ -144,7 +145,7 @@ module
         predictions.map(displayPrediction);
         return predictions;
     })
-    .then(promptUserPredicitons);
+    .then(promptUserPredictions);
 
 
 
