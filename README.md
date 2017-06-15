@@ -1,6 +1,8 @@
 WAT
 ===
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/syzer/distributedNgram.svg)](https://greenkeeper.io/)
+
 Simply put predict next word user will write.
 
 HOWTO
