@@ -11,12 +11,12 @@
   "license": "ISC",
   "dependencies": {
     "js-spark": "latest",
-    "lodash": "^3.6.0",
-    "prompt": "^0.2.14"
+    "lodash": "^4.17.4",
+    "prompt": "^1.0.0"
   },
   "devDependencies": {
-    "chai": "^2.2.0",
-    "mocha": "^2.2.3"
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2"
   },
   "keywords": [
     "Machine learning",
